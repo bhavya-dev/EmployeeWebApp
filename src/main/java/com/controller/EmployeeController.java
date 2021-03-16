@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.model.Employee;
 import com.service.EmployeeService;
@@ -61,5 +62,11 @@ public class EmployeeController {
 		return "redirect:/";
 	}
 	
+	@RequestMapping("/checkMethod")
+	public String checkMethod(@ModelAttribute("employee") Employee employee) {
+    employeeService.saveEmployee(employee);
+    System.out.println(employee);
+		return "redirect:/";
+	}
 
 }

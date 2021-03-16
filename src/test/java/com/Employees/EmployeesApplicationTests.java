@@ -37,8 +37,8 @@ class EmployeesApplicationTests {
 	void getAllStudentsTest() {
 		Mockito.when(employeeRepository.findAll())
 				.thenReturn(Stream
-						.of(new Employee(1, "kunam", "Ramanamma","ramana@gmail.com"),
-								new Employee(2, "Alla", "Ramakrishna", "krishna@gmail.com"))
+						.of(new Employee(1, true,"kunam", "Ramanamma","ramana@gmail.com"),
+								new Employee(2,true, "Alla", "Ramakrishna", "krishna@gmail.com"))
 						.collect(Collectors.toList()));
 		Assertions.assertEquals(2, employeeService.getAllEmployees().size());
 	}
@@ -46,7 +46,7 @@ class EmployeesApplicationTests {
 	@Test
 	void saveEmployeeTest() {
 		
-		Employee employee= new Employee(1, "kunam", "Ramanamma","ramana@gmail.com");
+		Employee employee= new Employee(1,true, "kunam", "Ramanamma","ramana@gmail.com");
 
 		employeeService.saveEmployee(employee);
 		Mockito.verify(employeeRepository, Mockito.times(1)).save(employee);
@@ -56,7 +56,7 @@ class EmployeesApplicationTests {
 	void getEmployeeByIdTest() {
 		
 		Integer id=1;
-		Optional<Employee> employee = Optional.of(new Employee(1, "kunam", "Ramanamma", "ramana@gmail.com"));
+		Optional<Employee> employee = Optional.of(new Employee(1,true, "kunam", "Ramanamma", "ramana@gmail.com"));
 		Mockito.when(employeeRepository.findById(id)).thenReturn(employee);
 		Assertions.assertEquals(employee, employeeService.getEmployeeById(id));
 		

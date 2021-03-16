@@ -21,6 +21,7 @@ public class Employee {
 	@Id
 	@GeneratedValue
 	private int id;
+	private boolean status;
     private String firstName;
 	private String lastName;
 	private String email;
