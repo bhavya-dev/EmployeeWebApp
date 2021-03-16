@@ -15,7 +15,7 @@
 	   <table border="1" class = "table table-striped table-hover table-responsive-md">
 			<thead>
 				<tr>
-				 <th>Status</th>
+				 <th>status</th>
 				 <th>FirstName</th>
 				 <th>LastName</th>
 				 <th>Email</th>
@@ -24,17 +24,14 @@
 			</tr>
 			</thead>
 			<tbody>
-				<tr th:each="employee : ${listEmployees}">
+				<tr th:each="employee : ${listEmployees}" >
 				   
-		         <!-- <td><input th:type="checkbox" th:checked="@{/showFormForUpdate/{id}(id=${employee.id})}">
-				    </td> -->
 				    <td th:text="${employee.status}"></td>
 					<td th:text="${employee.firstName}"></td>
 					<td th:text="${employee.lastName}"></td>
 					<td th:text="${employee.email}"></td>
 					<td> <a th:href="@{/showFormForUpdate/{id}(id=${employee.id})}" class="btn btn-primary">Update</a></td>
 					<td><a th:href="@{/deleteEmployee/{id}(id=${employee.id})}" class="btn btn-danger">Delete</a></td>
-			
 				</tr>
 			</tbody>
 		</table>
